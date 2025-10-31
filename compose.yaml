@@ -1,0 +1,10 @@
+services:
+  tradingbackend:
+    image: tradingbackend
+    build:
+      context: backend
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 3000:3000

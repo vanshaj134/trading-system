@@ -1,0 +1,49 @@
+// src/controllers/tradeController.ts
+import prisma from '../utils/prismaClient';
+
+export async function createTradeHandler(payload: {
+  symbol: string;
+  action: string;
+  quantity: number;
+  price: number;
+  portfolioId: string;
+  signalId?: string | null;
+}) {
+  const { symbol, action, quantity, price, portfolioId, signalId } = payload;
+
+  const trade = await prisma.trade.create({
+    data: {
+      symbol,
+      action,
+      quantity,
+      price,
+      status: 'PENDING',
+      portfolioId,
+      signalId
+    }
+  });
+
+  // Simulate execution (paper trade)
+  const executed = await prisma.trade.update({
+    where: { id: trade.id },
+    data: { status: 'EXECUTED', executionTime: new Date() }
+  });
+
+  await prisma.systemLog.create({
+    data: {
+      level: 'INFO',
+      message: `Trade executed: ${symbol} ${action} qty=${quantity} @${price}`,
+      context: { tradeId: executed.id }
+    }
+  });
+
+  return executed;
+}
+
+export async function listTradesHandler() {
+  return await prisma.trade.findMany({ orderBy: { createdAt: 'desc' }, include: { portfolio: true, signal: true } });
+}
+
+export async function getTradeHandler(id: string) {
+  return await prisma.trade.findUnique({ where: { id }, include: { portfolio: true, signal: true } });
+}
