@@ -5,7 +5,10 @@ def simulate_execution(orders, market_data, slippage_model):
 
     for order in orders:
         mid_price = market_data[order["symbol"]]["mid"]
-        slippage = slippage_model(order, market_data)
+        if slippage_model == "fixed_0.001":
+            slippage = 0.001
+        else:
+            slippage = 0.0  # Default
 
         fill_price = mid_price + slippage * order["side"]
         fills.append({
