@@ -1,0 +1,469 @@
+/* Epistemic Dashboard Stylesheet
+   Purpose: Render truth clearly, without seduction
+   Design: Intentionally quiet, unimpressed, disciplined
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Monaco', 'Courier New', monospace;
+  background: #0e1117;
+  color: #c9d1d9;
+  line-height: 1.5;
+}
+
+.epistemic-dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============================================================================
+   BACKEND REACHABILITY GATE (Top Priority, Never lies)
+   ============================================================================ */
+
+.gate {
+  padding: 15px 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.gate-status {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.gate-details {
+  font-size: 12px;
+  color: #999;
+}
+
+.gate-connected {
+  background: #0d3922;
+  border: 1px solid #3fb950;
+}
+
+.gate-connected .gate-status {
+  color: #3fb950;
+}
+
+.gate-unreachable {
+  background: #3d1f1a;
+  border: 1px solid #d1453f;
+}
+
+.gate-unreachable .gate-status {
+  color: #d1453f;
+}
+
+/* ============================================================================
+   PANELS (Core content structure)
+   ============================================================================ */
+
+.panels-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 1;
+}
+
+.panel {
+  background: #161b22;
+  border: 1px solid #30363d;
+  border-left: 3px solid #3fb950;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.panel-title {
+  font-size: 12px;
+  font-weight: bold;
+  color: #3fb950;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #30363d;
+}
+
+/* ============================================================================
+   SYSTEM TRUTH PANEL
+   ============================================================================ */
+
+.truth-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.truth-table tbody tr {
+  border-bottom: 1px solid #30363d;
+}
+
+.truth-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.truth-table td {
+  padding: 8px 0;
+}
+
+.truth-table td:first-child {
+  color: #999;
+  width: 150px;
+  padding-right: 20px;
+}
+
+.truth-table td:last-child {
+  color: #c9d1d9;
+}
+
+/* ============================================================================
+   REGIME PANEL (Explicit uncertainty)
+   ============================================================================ */
+
+.regime-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.regime-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid #30363d;
+}
+
+.regime-row:last-of-type {
+  border-bottom: none;
+}
+
+.regime-row span:first-child {
+  color: #999;
+}
+
+.regime-row span:last-child {
+  color: #c9d1d9;
+}
+
+.regime-interpretation {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(63, 185, 80, 0.05);
+  border-left: 2px solid #3fb950;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.regime-interpretation p {
+  margin: 5px 0;
+}
+
+.regime-interpretation p:first-child {
+  margin-top: 0;
+}
+
+.regime-interpretation p:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================================
+   BELIEF STACK PANEL (Shows causality)
+   ============================================================================ */
+
+.belief-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.belief-layer {
+  padding: 12px 0;
+  border-bottom: 1px solid #30363d;
+}
+
+.belief-layer:last-child {
+  border-bottom: none;
+}
+
+.layer-name {
+  font-size: 12px;
+  font-weight: bold;
+  color: #3fb950;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.layer-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-left: 10px;
+}
+
+.belief-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #c9d1d9;
+}
+
+.belief-key {
+  min-width: 80px;
+  color: #999;
+}
+
+.belief-value {
+  font-weight: bold;
+  min-width: 80px;
+  text-align: right;
+}
+
+.belief-conf {
+  color: #666;
+  font-size: 11px;
+  min-width: 100px;
+  text-align: right;
+}
+
+.layer-arrow {
+  text-align: center;
+  color: #3fb950;
+  font-size: 18px;
+  margin: 4px 0;
+  opacity: 0.5;
+}
+
+/* ============================================================================
+   CONSTRAINT PANEL (Most important for discipline)
+   ============================================================================ */
+
+.constraint-section {
+  margin-bottom: 15px;
+}
+
+.constraint-section:last-child {
+  margin-bottom: 0;
+}
+
+.subsection-title {
+  font-size: 11px;
+  font-weight: bold;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.constraints {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.constraint {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.constraint-pass {
+  border-left: 3px solid #3fb950;
+}
+
+.constraint-pass .constraint-status {
+  color: #3fb950;
+}
+
+.constraint-fail {
+  border-left: 3px solid #d1453f;
+}
+
+.constraint-fail .constraint-status {
+  color: #d1453f;
+}
+
+.constraint-status {
+  font-weight: bold;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.portfolio-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.portfolio-table tbody tr {
+  border-bottom: 1px solid #30363d;
+}
+
+.portfolio-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.portfolio-table td {
+  padding: 6px 0;
+}
+
+.portfolio-table td:first-child {
+  color: #999;
+  width: 120px;
+  padding-right: 20px;
+}
+
+.portfolio-table td:last-child {
+  color: #c9d1d9;
+  font-family: 'Monaco', monospace;
+}
+
+.forbidden-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.forbidden-item {
+  font-size: 12px;
+  color: #d1453f;
+  padding: 4px 0;
+}
+
+/* ============================================================================
+   RUN TIMELINE (Minimal, no charts)
+   ============================================================================ */
+
+.run-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.run-entry {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  font-size: 12px;
+  border-left: 2px solid #30363d;
+}
+
+.run-entry:hover {
+  border-left-color: #3fb950;
+  background: rgba(63, 185, 80, 0.05);
+}
+
+.run-time {
+  color: #999;
+  min-width: 60px;
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.run-regime {
+  color: #c9d1d9;
+  min-width: 120px;
+  font-weight: bold;
+}
+
+.run-conf {
+  color: #666;
+  min-width: 70px;
+  font-size: 11px;
+}
+
+.run-exposure {
+  color: #999;
+  min-width: 70px;
+  font-size: 11px;
+}
+
+.run-violation {
+  margin-left: auto;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* ============================================================================
+   STATE MESSAGES
+   ============================================================================ */
+
+.no-state-message {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #999;
+  padding: 60px 20px;
+}
+
+.no-state-message p {
+  margin: 10px 0;
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
+.footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #30363d;
+  text-align: center;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .epistemic-dashboard {
+    padding: 15px;
+  }
+
+  .panel {
+    padding: 12px;
+  }
+
+  .run-entry {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .run-violation {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}
