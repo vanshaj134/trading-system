@@ -62,3 +62,35 @@ class PortfolioOptimizer:
                 capped_positions[symbol] *= scale
 
         return capped_positions
+
+
+def optimize(positions: Dict[str, Dict]) -> Dict[str, Dict]:
+    """
+    Optimize portfolio allocation.
+    
+    Args:
+        positions: Position dictionary
+    
+    Returns:
+        Optimized position targets
+    """
+    if not positions:
+        return {}
+    
+    # Simple optimization: scale by confidence
+    total_confidence = sum(p.get('confidence', 0.0) for p in positions.values())
+    
+    if total_confidence == 0:
+        return {symbol: {'target': 0.0, 'weight': 0.0} for symbol in positions.keys()}
+    
+    result = {}
+    for symbol, position in positions.items():
+        confidence = position.get('confidence', 0.0)
+        weight = confidence / total_confidence if total_confidence > 0 else 0.0
+        result[symbol] = {
+            'target': position.get('size', 0.0) * weight,
+            'weight': weight,
+            'direction': position.get('direction', 'NEUTRAL')
+        }
+    
+    return result
