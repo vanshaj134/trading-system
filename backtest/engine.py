@@ -59,7 +59,6 @@ class BacktestEngine:
         }
         
         # Components
-        self.store = ParquetStore()
         self.feature_engine = FeatureEngine()
         self.edge_ranker = EdgeRanker()
         self.instrument_decider = InstrumentDecider()
@@ -83,11 +82,11 @@ class BacktestEngine:
         print("\n📊 Loading historical data...")
         
         try:
-            symbols = self.store.list_available_symbols()
+            symbols = list_available_symbols()
             print(f"   Found {len(symbols)} symbols")
             
             for symbol in symbols:
-                df = self.store.load_parquet(symbol)
+                df = load_parquet(symbol)
                 if df is not None and len(df) > 0:
                     self.all_data[symbol] = df
             
