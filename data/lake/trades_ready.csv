@@ -1,0 +1,6 @@
+symbol,date,close_price,edge_score,instrument,direction,position_size_value,position_size_units,leverage,entry_price,stop_loss,take_profit,risk_per_trade,risk_percent,expected_reward,reward_risk_ratio,rationale
+SBIN.NS,2026-02-11,1182.9000244140625,75.8,FUTURES,LONG,300000.0,253,1.5,1182.9,1140.59,1225.21,10703.4,1.07,10703.4,1.0,"Strong trend detected, directional setup"
+TATASTEEL.NS,2026-02-11,207.58999633789062,74.45,FUTURES,LONG,300000.0,1445,1.5,207.59,198.52,216.66,13104.21,1.31,13104.21,1.0,"Strong trend detected, directional setup"
+POWERGRID.NS,2026-02-11,294.45001220703125,72.75,FUTURES,LONG,300000.0,1018,2.25,294.45,284.61,307.57,10016.8,1.0,13355.74,1.33,Strong directional trend with volatility expansion
+ADANIPORTS.NS,2026-02-11,1553.4000244140625,68.5,SPOT,LONG,300000.0,193,1.2,1553.4,1488.98,1596.35,12432.9,1.24,8288.6,0.67,Default conservative instrument
+ONGC.NS,2026-02-11,274.6000061035156,68.5,SPOT,LONG,300000.0,1092,1.2,274.6,263.24,282.17,12404.93,1.24,8269.95,0.67,Default conservative instrument
