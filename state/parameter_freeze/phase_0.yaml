@@ -1,0 +1,55 @@
+# /state/parameter_freeze/phase_0.yaml
+# Frozen parameters for Phase 0 Operations
+# Created on: 2026-01-11
+# Commit: [to be tagged]
+# Purpose: Lock system state for deterministic observation
+
+# Portfolio Optimizer Defaults
+portfolio_optimizer:
+  risk_budget: 0.01  # Default risk budget per strategy
+  gross_exposure_limit: 0.8  # Max gross exposure as fraction of equity
+  instrument_cap: 0.1  # Max position per instrument as fraction of equity
+
+# Strategy Silos
+strategy_silos:
+  trend_following_v1:
+    capital_fraction: 0.4
+    max_leverage: 1.2
+    risk_budget: 0.01
+    max_drawdown: 0.08
+  mean_reversion_v1:
+    capital_fraction: 0.3
+    max_leverage: 1.0
+    risk_budget: 0.008
+    max_drawdown: 0.05
+  stat_arb_v1:
+    capital_fraction: 0.3
+    max_leverage: 1.5
+    risk_budget: 0.012
+    max_drawdown: 0.06
+
+# Signal Generation Parameters
+signal_generation:
+  lookback: 30  # Default lookback period
+  buy_threshold: 0.15
+  sell_threshold: -0.15
+
+# Shadow Mode Settings
+shadow_mode:
+  enabled: true
+  divergence_threshold: 0.05  # Placeholder, to be determined from Phase 0 data
+
+# Kill Switch and Throttling
+kill_switch:
+  enabled: true
+  throttle_levels:
+    - 0.1
+    - 0.5
+    - 1.0
+
+# System State
+system_state:
+  initial_state: RUNNING
+  symbolic_capital: 100000.0  # USD, for simulation
+
+# Note: Any changes to these parameters require explanation and re-freeze.

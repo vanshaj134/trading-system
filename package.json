@@ -1,0 +1,8 @@
+{
+  "name": "trading-system",
+  "version": "1.0.0",
+  "description": "Trading System Monorepo",
+  "scripts": {
+    "test": "echo \"Run tests in backend and frontend\""
+  }
+}

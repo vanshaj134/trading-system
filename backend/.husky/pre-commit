@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Example pre-commit hook: run tests quickly
+echo "Running backend pre-commit checks..."
+npm --prefix backend test --silent || (echo "Tests failed" && exit 1)

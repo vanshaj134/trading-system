@@ -1,0 +1,6 @@
+{
+  "timestamp": "2026-01-13T00:00:00Z",
+  "run_id": "sample-0001",
+  "regime": "HIGH_VOL_CHOP",
+  "details": {"note": "sample record to initialize persistence"}
+}

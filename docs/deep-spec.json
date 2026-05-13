@@ -1,0 +1,8 @@
+{
+  "name": "Trading System Deep Spec",
+  "version": "0.1",
+  "components": [
+    {"name": "backend", "type": "service"},
+    {"name": "frontend", "type": "web"}
+  ]
+}
